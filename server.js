@@ -14,7 +14,8 @@ const app = express();
 
 
 // constant variables
-const PORT = process.env.PORT_NUM;
+// const PORT = process.env.PORT_NUM;
+const PORT = 440;
 const __dirname = path.resolve();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
