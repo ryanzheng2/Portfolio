@@ -1,0 +1,25 @@
+// I need to do this I think because I'm using es6. Unsure
+const __dirname = path.resolve();
+
+
+*href realy just makes a request to the server
+// in the html file that has href linkage to the boostrap css and script src linkage to
+//js, the href makes a reqest to this server to fetch those files
+// -> node_modules/bootstrap/dist/css/bootstrap.min.css, so if the request starts with node_modules, then we set
+// the static express path to the correct place, note this doesn't consume /node_modules
+app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
+
+express.static basically allows for linkage
+honestly you can just use this
+    app.use(express.static("public"));
+    app.use("/node_modules", express.static("node_modules"));
+instead of this
+    app.use(express.static(path.join(__dirname, "public")));
+    app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
+
+
+css font import
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+
+i tried to apply margin to #home when that div also had class my-5, but my-5 had greater precedence. So be conscious of css precedence. I had to remove the my-5 class

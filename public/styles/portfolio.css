@@ -1,0 +1,770 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* preliminaries */
+
+:root{
+    --bg-black: rgb(21, 21, 21);
+    --bg-nav-grey: #242424e0;
+    --accent-blue: #00d5ff;
+    --accent-blue-2: #00b7dc;
+    --accent-purple: rgb(69, 75, 255);
+    --card-radius: 0.76rem;
+}
+
+body{
+    background-color: var(--bg-black);
+}
+
+html{
+    /* for href id autoscroll */
+    scroll-padding-top: 80px; 
+}
+
+a{
+    color: white;
+}
+
+/* animation */
+
+/* animation range, don't know how to use */
+/* this css not very campatible, use js instead */
+/* https://caniuse.com/mdn-css_properties_animation-range-start */
+/* https://www.youtube.com/watch?v=UmzFk68Bwdk&ab_channel=KevinPowell */
+/* --animation-range: normal; */
+/* .wrapper{
+    animation: zoom-out-fade ease both;
+    animation-timeline: view();
+    animation-range: exit 10%;
+}
+
+@keyframes zoom-out-fade{
+    0% {
+
+    }
+
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+} */
+
+.hidden{
+    position: relative;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-50%);
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    /* #home .container .row .hidden:nth-child(3) */
+    /* this is more specific so we need !important */
+    transform: translateX(0) !important;
+}
+
+.hidden-up{
+    position: relative;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100px);
+    transition: all 1s;
+}
+
+.show-up{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.hidden-left, .hidden-resume{
+    position: relative;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(10%);
+    transition: all 1.5s;
+}
+
+.show-left, .show-resume{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.hidden-resume{
+    transition-delay: 1s;
+}
+
+.hidden-appear{
+    position: relative;
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1.5s;
+}
+
+.show-appear{
+    opacity: 1;
+    filter: blur(0);
+}
+
+#technologies .container .container div p{
+    font-size: 0.5rem;
+} 
+
+@media screen and (min-width: 600px) {
+    #technologies .container .container div p{
+        font-size: 1rem;
+    } 
+}
+
+@media screen and (min-width: 992px){
+    /* note that when the layout is vertical because of mobile res
+    elements that are outside the view window will not strigger observer
+    because observer only triggers when _% of the element is in view
+    so when in vertical layout, we cannot be more than 90% out of view in our 
+    current observer option settings */
+   
+     #home .container .row .hidden:nth-child(1){
+         /* a sequence class that is also a first child */
+         /* takes care of about transitions and this can be applied to 
+         other topics as long as the html structure is the same */
+         transition-delay: 0;
+         transform: translateX(-50%);
+     }
+     #home .container .row .hidden:nth-child(2){
+         transition-delay: 300ms;
+         transform: translateX(-200%);
+     }
+     #home .container .row .hidden:nth-child(3){
+         transition-delay: 500ms;
+         transform: translateX(-300%);
+     }
+ }
+
+@media screen and (min-width: 992px){
+    /* when small, the cards are stacked, so we should not have delay */
+    /* this only applies it to big screen */
+    #projects .container .row > div:nth-child(1){
+        /* these are for hidden-up */
+        transition-delay: 200ms;
+    }
+    #projects .container .row > div:nth-child(2){
+        transition-delay: 400ms;
+    }
+    #projects .container .row > div:nth-child(3){
+        transition-delay: 600ms;
+    }
+}
+
+#academics div div:nth-child(1){
+    transition-delay: 300ms;
+}
+#academics .row.p-5 div:nth-child(2){
+    transition-delay: 600ms;
+}
+#academics .row.p-5 div:nth-child(3){
+    transition-delay: 900ms;
+}
+
+/* use sass to dynamically do this */
+#technologies .container .row div:nth-child(1){
+    transition-delay: 200ms;
+}
+#technologies .container .row div:nth-child(2){
+    transition-delay: 400ms;
+}
+#technologies .container .row div:nth-child(3){
+    transition-delay: 600ms;
+}
+#technologies .container .row div:nth-child(4){
+    transition-delay: 800ms;
+}
+#technologies .container .row div:nth-child(5){
+    transition-delay: 1000ms;
+}
+#technologies .container .row div:nth-child(6){
+    transition-delay: 1200ms;
+}
+#technologies .container .row div:nth-child(7){
+    transition-delay: 1400ms;
+}
+#technologies .container .row div:nth-child(8){
+    transition-delay: 1600ms;
+}
+#technologies .container .row div:nth-child(9){
+    transition-delay: 1800ms;
+}
+#technologies .container .row div:nth-child(10){
+    transition-delay: 2000ms;
+}
+#technologies .container .row div:nth-child(11){
+    transition-delay: 2200ms;
+}
+#technologies .container .row div:nth-child(12){
+    transition-delay: 2400ms;
+}
+#technologies .container .row div:nth-child(13){
+    transition-delay: 260ms;
+}
+#technologies .container .row div:nth-child(14){
+    transition-delay: 2800ms;
+}
+#technologies .container .row div:nth-child(15){
+    transition-delay: 3000ms;
+}
+
+
+
+/* navbar */
+.custom-nav-color{
+    background-color: var(--bg-nav-grey);
+    backdrop-filter: blur(6px); /* Adjust the blur radius as needed */
+
+}
+
+.navbar{
+    font-weight: 700;
+}
+
+
+.navbar-nav .nav-item a, .navbar-left{
+    font-family: "Comfortaa";
+    color: white;
+
+    transition: color 0.2s;
+}
+
+.navbar-nav .nav-item a{
+    transition: color 0.2s;
+}
+
+
+.navbar-nav .nav-item a:hover{
+    color: #4fe2ff;
+}
+
+.collapse.navbar-collapse.show .active, .navbar-collapse.collapsing .active{
+    border: none;
+}
+
+.navbar-collapse .nav-item a.active{ 
+    /* fixes blue underline during collapsing stutter*/
+    display: inline-block;
+    border-bottom: 2px var(--accent-blue) solid;
+    color:var(--accent-blue);
+}
+
+
+.navbar-collapse.show .nav-item a.active, .navbar-collapse.navbar-collapse.collapsing .nav-item a.active{ 
+    /* fixes blue underline during collapsing stutter*/
+    display: inline-block;
+    border-bottom: 2px var(--accent-blue) solid;
+    color:var(--accent-blue);
+}
+
+
+
+/* hero */
+
+.hero-container{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.wrapper .static-txt{
+    color: #fff;
+    font-size: 80px;
+    font-weight: 400;
+}
+.wrapper .dynamic-txts{
+    margin-left: 8rem;
+    height: 200px;
+    line-height: 200px;
+    overflow: hidden;
+}
+.dynamic-txts li{
+    list-style: none;
+    color: #FC6D6D;
+    font-size: 80px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+    100%{
+    top: -800px;
+    }
+}
+.dynamic-txts li span{
+    position: relative;
+    margin: 5px 0;
+    line-height: 200px;
+}
+
+.dynamic-txts li span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 120%;
+    width: 100%;
+    background-color:rgb(21, 21, 21);
+    border-left: 2px solid #FC6D6D;
+    animation: typing 3s steps(10) infinite;
+}
+
+.dynamic-txts li:nth-child(3) span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 120%;
+    width: 100%;
+    background-color:rgb(21, 21, 21);
+    border-left: 2px solid rgb(129, 129, 255);
+    animation: typing 3s steps(10) infinite;
+}
+
+@keyframes typing {
+    40%, 60%{
+    left: calc(100% + 30px);
+    }
+    100%{
+    left: 0;
+    }
+}
+
+#cat-lover{
+    /* gradient text */
+    background: linear-gradient(-135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text; /* WebKit/Blink browsers */
+    background-clip: text; /* Standard syntax */
+    color: transparent; 
+}
+
+#cat-image{
+    height: 200px;
+}
+
+.dynamic-txts li svg{
+    width: 70px;
+    height: 70px;
+}
+
+@media screen and (max-width: 719px) {
+    .wrapper .static-txt{
+        font-size: 36px;
+    }
+    .wrapper .dynamic-txts{
+        margin-left: 0rem;
+        height: 70px;
+        line-height: 70px;
+    }
+    .dynamic-txts li{
+        font-size: 30px;
+        font-weight: 500;
+    }
+    @keyframes slide {
+        100%{
+        top: -280px;
+        }
+    }
+    .dynamic-txts li span{
+        line-height: 70px;
+    }
+    #cat-image{
+        height: 70px;
+    }
+    .dynamic-txts li svg{
+        width: 30px;
+        height: 30px;
+    }
+  }
+
+
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+  
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #00d5ff; 
+    border-radius: 0px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+  
+
+
+
+
+/* content container and general content styles*/
+div .topic{
+    /* border: green 2px solid !important; */
+    padding: 5rem 0 !important;
+    margin: 0 !important;
+}
+
+
+.topic > h2{
+    padding: 0;
+    padding-left: 0.5rem;
+    padding-bottom: 0.4rem;
+    padding-top: 0.2rem;
+    margin: 0;
+    line-height: 1.3rem;
+    display: block;
+    border-left: 4px solid var(--accent-purple);
+
+}
+
+
+
+.content-container{
+    /* border: red 2px solid; testing borders*/ 
+    color: white;
+}
+
+
+/* contacts */
+#contacts, #contacts-form{
+    position: relative;
+    /* secret to not have navbar glitch is to have all the footer and stuff be in the last navbar linked container or else you scroll to a unaccounted for element and navbar glitches*/
+    margin-top: 1rem;
+    margin-bottom: 6rem;
+}
+
+.contacts-container{
+    margin-top:3rem;
+    border: 2px var(--accent-blue) solid;
+    color: white;
+    width: 45%;
+    padding: 0 4rem;
+    border-radius: 1rem;
+}
+
+.test{
+    height: 200px;
+}
+
+.form-floating{
+    width: 100%;
+    color: black;
+}
+
+#floatingTextarea{
+    height: 200px;
+    resize: none;
+}
+
+label{
+    color: white;
+}
+
+.btn-blue{
+    width: 90%;
+    height: 100%;
+    margin-left: auto;
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background-color: var(--accent-blue-2);
+    transition: all 0.35s ease;
+}
+
+.btn-blue:hover{
+    /* removed [,#contact-popover:hover] */
+    color: white;
+    background-color: var(--accent-purple);
+    transition: all 0.35s ease;
+}
+
+.submit-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.captcha-container{
+    /* captcha uses iframe and cannot be decorated, thus we use a wrapper */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px rgb(78, 78, 78) solid;
+}
+.captcha-container .g-recaptcha{
+    transform: scale(1.05) translateX(3px) translateY(30px);
+}
+
+@media screen and (max-width: 1000px) {
+    /* note media queries put after respective selectors or else media query takes 
+    less precidence and regular styles are applied */
+    .contacts-container{
+        width: 90%;
+    }
+    .captcha-container .g-recaptcha{
+        transform: scale(1.05) translateX(3px) translateY(28px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .captcha-container{
+        width: 110px;
+        height: 50px;
+    }
+    .captcha-container .g-recaptcha{
+        transform: scale(0.7) translateX(3px) translateY(28px);
+    }
+    .btn-blue{
+        font-size: 10px;
+    }
+}
+
+.toast-fail{
+    background-color: rgb(255, 131, 131);
+}
+.toast-fail .toast-header{
+    background-color: rgb(255, 78, 78);
+}
+
+.toast-success{
+    background-color: rgb(148, 255, 145);
+}
+.toast-success .toast-header{
+    background-color: rgb(98, 193, 94)
+}
+
+/* #contact-popover{ 
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    background-color: var(--accent-blue-2);
+    border: none;
+    border-radius: 100px;
+    height: 4rem;
+    width: 4rem;
+    color: black;
+    transition: background-color 0.5s ease, color 0.5s ease; 
+}    */
+
+#contact-header{
+    color: var(--accent-blue);
+    margin-top: 0.8rem;
+}
+
+
+.invert{
+    filter: invert(100%);
+    /* can't use fill because it is an image and not svg tag */
+}
+
+/* gotta learn sass to change arrow color */
+/* removed feature */
+/* .popover {
+    background-color: rgb(57, 57, 57);
+    border: 1px solid var(--border-color);
+}
+
+.popover-header {
+    background-color: rgb(41, 41, 41);
+    color: white;
+    border: 1px solid var(--border-color);
+}
+.popover-body {
+    color: white;
+} */
+
+
+/* projects */
+#projects{
+    margin-top: 8rem;
+}
+#carouselExampleCaptions{
+    /* this is how you set border color to gradient */
+    border: 8px solid transparent;
+    background-image: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 1.4rem;
+    /* gradient repeats image, so we stretch to fit so we don't repeat */
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 110% 110%;
+    background-position: center center;
+    
+    width: 45%;
+}
+
+.carousel-inner{
+    border-radius: 16px;
+    /* contains border radius so we can slide without seeing the sharp corners */
+}
+.carousel-item img{
+    height: 300px;
+    object-fit: cover;
+}
+
+div.card{
+    position: relative;
+    background-color: transparent;
+    border-radius: 0.85rem;
+    border: 5px solid transparent;
+    background-image: linear-gradient(-45deg, var(--accent-blue), var(--accent-purple));
+    /* again, to get rid of repeating patterns */
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 110% 110%;
+    background-position: center center;
+    height: 150px;
+    transition: all 0.3s;
+
+    overflow: hidden;
+}
+
+img.card-img-top{
+    object-fit: cover;
+    height: 100%;
+    border-top-right-radius: var(--card-radius);
+    border-top-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
+    border-bottom-left-radius: var(--card-radius);
+}
+
+.card-text{
+    font-size: 0.7rem;
+    color: white;
+}
+
+.card-title{
+    color: white;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+#projects .container .row > div .card-body{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    /* these are for hidden-up */
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+    border-top-right-radius: var(--card-radius);
+    border-top-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
+    border-bottom-left-radius: var(--card-radius);
+    padding: 1rem;
+
+    opacity: 0;
+}
+
+div.card:hover{
+    transform: scale(1.05) translateY(-5px);
+    transition: all 0.3s;
+}
+
+#projects .container .row > div .card-body:hover{
+    opacity: 0.8;
+    transition: all 0.68s;
+}
+
+@media screen and (max-width: 970px) {
+    .carousel-item img{
+        height: 300px;
+    }
+    #carouselExampleCaptions{
+        width: 100%;
+    }
+    
+}
+
+
+/* academics */
+#academics{
+    margin-top: 8rem;
+}
+
+#book-svg{
+    height: 350px;
+    fill: url(#grad1);
+}
+
+#resume{
+    border: transparent 5px solid;
+    border-radius: 25px;
+    height: 815px;
+    width: 620px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .disappear-when-small{
+        display: none !important;
+    }
+}
+
+/* technologies */
+#technologies{
+    margin-top: 8rem;
+    padding-top: 3rem;
+    padding-bottom: 12rem;
+}
+
+/* home */
+#home{
+    margin-top: 6rem;
+    margin-bottom: 8rem;
+}
+
+#person-svg{
+    height: 400px;
+    fill: url(#grad1);
+}
+
+
+.footer{
+    width: 100%;
+    height: 50px;
+    background-color: var(--bg-nav-grey);
+    font-family: "comfortaa";
+    color: rgb(155, 155, 155);
+}
+
+.dropdown-toggle{
+    background-color: transparent;
+    border: 2px white solid;
+    font-size: 20px;
+}
+
+a.dropdown-item{
+    text-wrap: wrap;
+}
+
+
+
+/* note: #hero and #error-correction is because boostrap scrollspy glitches when you scroll around. Hence why the nav-item for #hero has display none class*/
